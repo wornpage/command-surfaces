@@ -69,7 +69,7 @@ Slot: `children` (optional label before the keys).
 
 ## Theme tokens
 
-The components use the existing Wornpage `--cockpit-*` tokens when available.
+The components use the existing Wornpage `--worn-*` tokens when available.
 Toolbar-specific values can be overridden with `--worn-toolbar-background`,
 `--worn-toolbar-border`, `--worn-toolbar-radius`, `--worn-toolbar-shadow`,
 `--worn-toolbar-padding`, and `--worn-toolbar-gap`.
