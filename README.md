@@ -1,79 +1,12 @@
-# @wornpage/command-surfaces
+# Wornpage command-surfaces — historical repository
 
-> Part of **[Wornpage Components](https://github.com/wornpage/wornpage#component-library)**.
-> [Browse the catalog](https://wornpage.pages.dev) · [Setup guide](https://github.com/wornpage/wornpage/blob/main/docs/getting-started.md) · [Wornpage overview](https://github.com/wornpage/wornpage)
+Active source, documentation, and releases now live in
+[`wornpage/wornpage/packages/command-surfaces`](https://github.com/wornpage/wornpage/tree/main/packages/command-surfaces).
 
-Compact Svelte 5 command toolbars and keyboard shortcut hints. The package is
-source-delivered so consuming applications compile it with their own theme
-tokens and Content Security Policy.
+[Browse Components](https://wornpage-components.pages.dev) · [Installation guide](https://github.com/wornpage/wornpage/blob/main/docs/getting-started.md) · [Releases](https://github.com/wornpage/wornpage/releases)
 
-<!-- wornpage-delivery:v2 source -->
-## Delivery
+This repository stays public to preserve exact commit archive URLs used by existing Projects and Afterlist editions. Existing branches, tags, and source history are retained.
 
-`src/` is the canonical implementation and published runtime. This package is source-only; it does not ship a generated `dist/` directory.
+New issues, pull requests, and component changes belong in the canonical repository. The standalone release workflow has been retired.
 
-Repository text is checked out as LF through `.gitattributes`, so generated output is byte-stable across Windows and Linux.
-
-The shared [component delivery contract](https://github.com/wornpage/cli/blob/master/docs/component-delivery.md) checks this declaration, package exports, packed files, and generated output on every push and pull request.
-<!-- /wornpage-delivery -->
-
-## Source use
-
-This package is not published to npm. Check out this repository at a reviewed commit, install its
-dependencies from `bun.lock`, and consume `src/index.ts` through a local workspace alias. The
-`@wornpage/command-surfaces` imports below assume that local alias; they do not resolve from the
-public npm registry.
-
-## Usage
-
-```svelte
-<script>
-  import { Kbd, Toolbar } from '@wornpage/command-surfaces';
-</script>
-
-<Toolbar label="Document actions">
-  <button type="button">Save</button>
-  <Kbd keys={['Ctrl', 'S']} />
-</Toolbar>
-
-<Toolbar label="Filters" variant="chips">
-  <button type="button">Open</button>
-  <button type="button">Blocked</button>
-</Toolbar>
-```
-
-## Toolbar
-
-Toolbar groups related controls without replacing their native keyboard
-behavior. It uses `role="group"`, not `role="toolbar"`, so children remain in
-the normal Tab sequence. The default layout wraps controls; `variant="chips"`
-uses responsive grid tracks. Both variants contain their children without
-clipping focus rings or content. The group itself does not advertise a click
-action on hover; its active boundary appears only when focus moves within its
-controls.
-
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `label` | `string` | `Toolbar` | Accessible group name |
-| `variant` | `default \| chips` | `default` | Wrapping layout |
-
-Slot: `children` (required controls).
-
-## Kbd
-
-Kbd renders one or more native `<kbd>` elements. Chord separators are based on
-position, so repeated labels remain correct. Long labels wrap inside their
-parent instead of widening the document.
-
-| Prop | Type | Description |
-|------|------|-------------|
-| `keys` | `string[]` | Key labels in display order |
-
-Slot: `children` (optional label before the keys).
-
-## Theme tokens
-
-The components use the existing Wornpage `--worn-*` tokens when available.
-Toolbar-specific values can be overridden with `--worn-toolbar-background`,
-`--worn-toolbar-border`, `--worn-toolbar-radius`, `--worn-toolbar-shadow`,
-`--worn-toolbar-padding`, and `--worn-toolbar-gap`.
+See the [migration record](https://github.com/wornpage/wornpage/blob/main/docs/component-migration.md) for source ownership and compatibility requirements.
